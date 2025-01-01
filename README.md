@@ -1,116 +1,84 @@
-Sopa de Letras en C
+# Sopa de Letras en C
 
 Este programa genera una sopa de letras en la que los jugadores pueden buscar palabras ocultas. A continuación, se describen las características, instrucciones de uso y detalles técnicos del programa.
 
-Características
+## Características
 
-Tamaño Personalizable de la Matriz:
+### Tamaño Personalizable de la Matriz
+- El usuario puede elegir el tamaño de la sopa de letras, con un límite entre 10x10 y 35x35.
 
-El usuario puede elegir el tamaño de la sopa de letras, con un límite entre 10x10 y 35x35.
+### Cantidad de Palabras a Esconder
+- Se permite esconder entre `N/2` y `2N` palabras, donde `N` es el tamaño de la matriz.
 
-Cantidad de Palabras a Esconder:
+### Validación de Entrada
+- Las palabras deben tener entre 2 y `N` caracteres.
+- Se permite únicamente el uso de caracteres alfabéticos.
 
-Se permite esconder entre N/2 y 2N palabras, donde N es el tamaño de la matriz.
+### Orientaciones de Palabras
+- Las palabras pueden aparecer en las siguientes orientaciones:
+  - **Vertical** (arriba hacia abajo o abajo hacia arriba).
+  - **Horizontal** (izquierda a derecha o derecha a izquierda).
 
-Validación de Entrada:
+### Interfaz de Juego
+- Los jugadores ingresan palabras encontradas.
+- El programa valida las palabras ingresadas y proporciona retroalimentación sobre si son correctas.
+- Se informa la ubicación y orientación de las palabras encontradas.
 
-Las palabras deben tener entre 2 y N caracteres.
+### Sistema de Puntuación
+- Los jugadores tienen 3 vidas.
+- Se reduce una vida por cada palabra incorrecta ingresada.
+- El juego termina si se encuentran todas las palabras o si se pierden todas las vidas.
 
-Se permite únicamente el uso de caracteres alfabéticos.
+### Tiempo de Juego
+- Se mide y muestra el tiempo que tarda el jugador en completar la partida.
 
-Orientaciones de Palabras:
+## Cómo Usar el Programa
 
-Las palabras pueden aparecer en las siguientes orientaciones:
+### Requisitos
+- Un compilador de C (como GCC).
+- Un terminal o entorno de desarrollo que permita la entrada y salida estándar.
 
-Vertical (arriba hacia abajo o abajo hacia arriba).
+### Instrucciones
 
-Horizontal (izquierda a derecha o derecha a izquierda).
-
-Interfaz de Juego:
-
-Los jugadores ingresan palabras encontradas.
-
-El programa valida las palabras ingresadas y proporciona retroalimentación sobre si son correctas.
-
-Se informa la ubicación y orientación de las palabras encontradas.
-
-Sistema de Puntuación:
-
-Los jugadores tienen 3 vidas.
-
-Se reduce una vida por cada palabra incorrecta ingresada.
-
-El juego termina si se encuentran todas las palabras o si se pierden todas las vidas.
-
-Tiempo de Juego:
-
-Se mide y muestra el tiempo que tarda el jugador en completar la partida.
-
-Cómo Usar el Programa
-
-Requisitos
-
-Un compilador de C (como GCC).
-
-Un terminal o entorno de desarrollo que permita la entrada y salida estándar.
-
-Instrucciones
-
-Compilación:
+#### Compilación
 Compile el programa utilizando el siguiente comando:
-
+```bash
 gcc sopa.c -o sopa_de_letras
-
-Ejecución:
+```
+Ejecución
 Ejecute el programa:
-
+```bash
 ./sopa_de_letras
+```
 
-Configuración Inicial:
+## Configuración Inicial
+1. Introduzca el tamaño de la matriz (entre 10 y 35).
+2. Especifique la cantidad de palabras a esconder (entre `N/2` y `2N`).
+3. Ingrese cada palabra siguiendo las reglas establecidas (alfabéticas y en mayúsculas o minúsculas).
 
-Introduzca el tamaño de la matriz (entre 10 y 35).
+## Juego
+1. Encuentre y escriba las palabras ocultas una por una.
+2. Reciba retroalimentación sobre palabras correctas o incorrectas.
+3. Siga jugando hasta ganar o perder.
 
-Especifique la cantidad de palabras a esconder (entre N/2 y 2N).
+## Fin del Juego
+- El programa muestra un mensaje indicando si ganó o perdió.
+- Se informa el tiempo total transcurrido durante el juego.
 
-Ingrese cada palabra siguiendo las reglas establecidas (alfabéticas y en mayúsculas o minúsculas).
+## Detalles Técnicos
 
-Juego:
+### Generación de Matriz
+- Se llena inicialmente con caracteres vacíos (`32`).
+- Las palabras se colocan de forma aleatoria siguiendo las reglas de orientación.
+- Las posiciones vacías se rellenan con letras aleatorias (`A-Z`).
 
-Encuentre y escriba las palabras ocultas una por una.
+### Validaciones
+- Las entradas del usuario son verificadas para evitar caracteres no permitidos.
+- Las palabras ya encontradas se eliminan para evitar duplicados.
 
-Reciba retroalimentación sobre palabras correctas o incorrectas.
+### Manejo de Colisiones
+- Se realizan hasta 1000 intentos para colocar cada palabra en la matriz.
+- Si no se encuentra espacio, la palabra es ignorada.
 
-Siga jugando hasta ganar o perder.
-
-Fin del Juego:
-
-El programa muestra un mensaje indicando si ganó o perdió.
-
-Se informa el tiempo total transcurrido durante el juego.
-
-Detalles Técnicos
-
-Generación de Matriz:
-
-Se llena inicialmente con caracteres vacíos (32).
-
-Las palabras se colocan de forma aleatoria siguiendo las reglas de orientación.
-
-Las posiciones vacías se rellenan con letras aleatorias (A-Z).
-
-Validaciones:
-
-Las entradas del usuario son verificadas para evitar caracteres no permitidos.
-
-Las palabras ya encontradas se eliminan para evitar duplicados.
-
-Manejo de Colisiones:
-
-Se realizan hasta 1000 intentos para colocar cada palabra en la matriz.
-
-Si no se encuentra espacio, la palabra es ignorada.
-
-Control de Tiempo:
-
-El programa mide el tiempo transcurrido desde el inicio hasta el final del juego para proporcionar estadísticas adicionales al jugador.
-
+### Control de Tiempo
+- El programa mide el tiempo transcurrido desde el inicio hasta el final del juego para proporcionar estadísticas adicionales al jugador.
